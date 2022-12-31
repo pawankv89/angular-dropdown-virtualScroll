@@ -1,0 +1,29 @@
+<p>Hello App</p>
+
+<p>
+  In this example we are loading many items but only ~30 of them are rendered in the DOM.
+  This allows to load as big data as you want.
+</p>
+
+<div class="ng-select-dropdown">
+  <ng-select 
+  [items]="listItems" 
+  [virtualScroll]="true" 
+  [loading]="loading" 
+  bindLabel="title" 
+  bindValue="id"
+  placeholder="Select Album" 
+  (scroll)="onScroll($event)" 
+  (scrollToEnd)="onScrollToEnd()"
+  appendTo="body">
+    <ng-template ng-header-tmp>
+      <small class="form-text text-muted">Loaded header</small>
+    </ng-template>
+    <ng-template ng-option-tmp let-item="item" let-index="index">
+      <b>{{index}} </b> {{item.title}}
+    </ng-template>
+    <ng-template ng-footer-tmp>
+      <small class="form-text text-muted">Loaded footer</small>
+    </ng-template>
+  </ng-select>
+</div>
